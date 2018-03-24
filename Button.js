@@ -30,6 +30,30 @@ class Button extends PIXI.Sprite {
     }
 
     generate() {
+        const gfx = new PIXI.Graphics();
+        const text = new PIXI.Text();
 
+        this.removeChildren();
+
+        text.anchor = new PIXI.Point(0.5, 0.5);
+        text.text = this.txtValue;
+        text.style = this.txtStyle;
+
+        gfx.beginFill(this.color, this.alpha);
+
+        switch (this.shape.type) {
+            case 'rect':
+                const {width, height}  = {...this.shape.options};
+                gfx.drawRect(0, 0, width, height);
+                text.x = this.shape.options.width / 2;
+                text.y = this.shape.options.height / 2;
+                break;
+            default:
+                break;
+        }
+
+        gfx.endFill();
+        this.texture = gfx.generateCanvasTexture();
+        this.addChild(text);
     }
 }
