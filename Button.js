@@ -33,6 +33,21 @@ class Button extends PIXI.Sprite {
         const gfx = new PIXI.Graphics();
         const text = new PIXI.Text();
 
+        const rectButton = () => {
+            const {width, height}  = {...this.shape.options};
+            gfx.drawRect(0, 0, width, height);
+            text.x = width / 2;
+            text.y = height / 2;
+        };
+
+        const roundedRectButton = () => {
+            const {width, height, radius} = {...this.shape.options};
+            gfx.drawRoundedRect(0, 0, width, height, radius);
+            text.x = width / 2;
+            text.y = height / 2;
+        };
+
+
         this.removeChildren();
 
         text.anchor = new PIXI.Point(0.5, 0.5);
@@ -43,16 +58,10 @@ class Button extends PIXI.Sprite {
 
         switch (this.shape.type) {
             case 'rect':
-                const {width, height}  = {...this.shape.options};
-                gfx.drawRect(0, 0, width, height);
-                text.x = this.shape.options.width / 2;
-                text.y = this.shape.options.height / 2;
+                rectButton();
                 break;
             case 'round-rect':
-                const {width, height, radius} = {...this.shape.options};
-                gfx.drawRect(0, 0, width, height, radius);
-                text.x = this.shape.options.width / 2;
-                text.y = this.shape.options.height / 2;
+                roundedRectButton();
                 break;
             default:
                 break;
