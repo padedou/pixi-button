@@ -1,4 +1,5 @@
 class Button extends PIXI.Sprite {
+    // https://medium.com/dailyjs/named-and-optional-arguments-in-javascript-using-es6-destructuring-292a683d5b4e
     constructor({
         x = 0,
         y = 0,
@@ -29,6 +30,6 @@ class Button extends PIXI.Sprite {
     }
 
     generate() {
-        
+
     }
 }
