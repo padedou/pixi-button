@@ -48,6 +48,12 @@ class Button extends PIXI.Sprite {
                 text.x = this.shape.options.width / 2;
                 text.y = this.shape.options.height / 2;
                 break;
+            case 'round-rect':
+                const {width, height, radius} = {...this.shape.options};
+                gfx.drawRect(0, 0, width, height, radius);
+                text.x = this.shape.options.width / 2;
+                text.y = this.shape.options.height / 2;
+                break;
             default:
                 break;
         }
