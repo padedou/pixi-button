@@ -47,6 +47,13 @@ class Button extends PIXI.Sprite {
             text.y = height / 2;
         };
 
+        const ellipseButton = () => {
+            const {x, y, width, height} = {...this.shape.options};
+            gfx.drawEllipse(x, y, width, height);
+            text.x = width;
+            text.y = height;
+        }
+
 
         this.removeChildren();
 
@@ -62,6 +69,9 @@ class Button extends PIXI.Sprite {
                 break;
             case 'round-rect':
                 roundedRectButton();
+                break;
+            case 'ellipse':
+                ellipseButton();
                 break;
             default:
                 break;
