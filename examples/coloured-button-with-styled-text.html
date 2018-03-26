@@ -1,0 +1,44 @@
+
+<html>
+    <head>
+        <title>Create a button</title>
+    </head>
+    <body>
+        <p>
+            This example shows how to add a coloured button with a styled text.
+        </p>
+        <script src="../pixi.js"></script>
+        <script src="../Button.js"></script>
+        <script>
+            const app = new PIXI.Application({
+                width: 600,
+                height: 800,
+                backgroundColor: 0x333333
+            });
+
+            const button = new Button({
+                x: 250,
+                y: 350,
+                color: 0x406868,
+                txtValue: 'styled text',
+                // http://pixijs.download/release/docs/PIXI.Text.html#style
+                txtStyle: new PIXI.TextStyle({
+                    align: 'center',
+                    fill: '#AD976B',
+                    fontSize: 20,
+                    fontWeight: 'bold'
+                }),
+                shape: {
+                    type: 'round-rect',
+                    options: {
+                        width: 150,
+                        height: 50,
+                        radius: 2 * Math.PI
+                    }
+                }
+            });
+            app.stage.addChild(button);
+            document.body.appendChild(app.view);
+        </script>
+    </body>
+</html>
