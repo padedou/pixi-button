@@ -54,6 +54,13 @@ class Button extends PIXI.Sprite {
             text.y = height;
         }
 
+        const circleButton = () => {
+            const {radius} = {...this.shape.options};
+            gfx.drawCircle(0, 0, radius);
+            text.x = radius;
+            text.y = radius;
+        }
+
 
         this.removeChildren();
 
@@ -72,6 +79,9 @@ class Button extends PIXI.Sprite {
                 break;
             case 'ellipse':
                 ellipseButton();
+                break;
+            case 'circle':
+                circleButton();
                 break;
             default:
                 break;
