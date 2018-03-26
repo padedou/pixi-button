@@ -1,0 +1,36 @@
+
+<html>
+    <head>
+        <title>Create a button</title>
+    </head>
+    <body>
+        <p>
+            This example shows how to add an ellipse button.
+        </p>
+        <script src="../pixi.js"></script>
+        <script src="../Button.js"></script>
+        <script>
+            const app = new PIXI.Application({
+                width: 600,
+                height: 800,
+                backgroundColor: 0x333333
+            });
+
+            const button = new Button({
+                x: 100,
+                y: 100,
+                shape: {
+                    type: 'ellipse',
+                    options: {
+                        width: 100,
+                        height: 50,
+                        x: 0,
+                        y: 0
+                    }
+                }
+            });
+            app.stage.addChild(button);
+            document.body.appendChild(app.view);
+        </script>
+    </body>
+</html>
